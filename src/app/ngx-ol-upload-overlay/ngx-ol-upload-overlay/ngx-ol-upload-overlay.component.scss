@@ -1,0 +1,103 @@
+
+@import '../style/motion/index';
+
+$zindex-modal: 1000;
+$modal-mask-bg: rgba(0,0,0,.65);
+$component-background: #fff;
+$border-radius-base: 4px;
+$shadow-2: 0 4px 12px rgba(0,0,0,.15);
+
+.overlay-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #373737;
+    background-color: $modal-mask-bg;
+    height: 100%;
+    z-index: $zindex-modal;
+    filter: alpha(opacity=50);
+
+    &-hidden {
+      display: none;
+    }
+}
+
+.overlay-wrap {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $zindex-modal;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+
+    .overlay {
+        font-family: "Monospaced Number","Chinese Quote",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        color: rgba(0,0,0,.65);
+        box-sizing: border-box;
+        margin: 0 auto;
+        padding: 0 0 24px;
+        list-style: none;
+        position: relative;
+        width: auto;
+        top: 100px;
+
+        .overlay-content {
+            position: relative;
+            background-color: $component-background;
+            border: 0;
+            border-radius: $border-radius-base;
+            background-clip: padding-box;
+            box-shadow: $shadow-2;
+
+            .overlay-head-container {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                border-radius: 4px 4px 0 0;
+                background-color: white;
+                border-bottom: 1px solid #e8e8e8;
+
+                .overlay-title {
+                    flex: auto;
+                    padding: 16px 24px;
+                    border-radius: 4px 0 0 0;
+                    font-size: 16px;
+                    line-height: 22px;
+                    font-weight: 500;
+                    color: rgba(0,0,0,.85);
+                }
+                .overlay-close {
+                    flex: 0 0 56px;
+                    width: 56px;
+                    height: 56px;
+                    border-width: 0;
+                    background-color: transparent;
+                    font-weight: 700;
+                    line-height: 1;
+                    text-decoration: none;
+                    transition: color .3s;
+                    color: rgba(0,0,0,.45);
+                    outline: 0;
+                    padding: 0;
+                    cursor: pointer;
+                    
+                    &:focus,
+                    &:hover {
+                        color: #444;
+                    }
+                }
+            }
+
+            .overlay-body-container {
+                padding: 24px;
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<div class="drag-upload" #container>
+  <input type="file" #fileInput class="file-input" [attr.accept]="accept" multiple (change)="onChange($event)">
+  <div class="drag-upload-content">
+    <ng-content></ng-content>
+  </div>
+  <div class="drag-drop-area" 
+  (drag)="onDrag($event)"
+  (dragend)="onDragEnd($event)"
+  (dragenter)="onDragEnter($event)"
+  (dragexit)="onDragExit($event)"
+  (dragleave)="onDragLeave($event)"
+  (dragover)="onDragOver($event)"
+  (dragstart)="onDragStart($event)"
+  (drop)="onDrop($event)"></div>
+</div>

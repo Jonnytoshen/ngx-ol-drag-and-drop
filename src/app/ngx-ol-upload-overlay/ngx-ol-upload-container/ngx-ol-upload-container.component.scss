@@ -1,0 +1,59 @@
+.upload-container {
+  margin-bottom: 24px;
+  width: 100%;
+  .file-type {
+    margin-bottom: 15px;
+    .file-type-lable {
+      line-height: 30px;
+    }
+  }
+  .upload-drag-area {
+    .upload-drag-icon {
+      margin-bottom: 20px;
+      .anticon {
+        font-size: 48px;
+        color: #40a9ff;
+      }
+    }
+    .upload-text {
+      font-size: 16px;
+      margin: 0 0 4px;
+      color: rgba(0, 0, 0, .85);
+    }
+    .upload-hint {
+      font-size: 14px;
+      color: rgba(0, 0, 0, .45);
+    }
+  }
+  .file-list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    .file-item {
+      flex: auto auto 20%;
+      margin: 10px;
+      width: 20%;
+    }
+  }
+  .error-alert {
+    margin-top: 10px;
+  }
+}
+
+
+.upload-footer {
+  margin: 0 -24px -24px -24px;
+  padding: 10px 16px;
+  border-top: 1px solid #e8e8e8;
+  border-radius: 0 0 4px 4px;
+  text-align: right;
+  button {
+    margin-left: 8px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

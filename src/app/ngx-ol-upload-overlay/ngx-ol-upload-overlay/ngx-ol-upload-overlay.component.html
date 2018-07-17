@@ -1,0 +1,27 @@
+<div>
+  <div class="overlay-mask" *ngIf="maskEnable"
+  [ngClass]="maskAnimationClassMap"
+  [class.overlay-mask-hidden]="hidden"
+  [ngStyle]="maskStyle"
+  [style.zIndex]="zIndex"></div>
+  <div class="overlay-wrap {{wrapClassName}}"
+  (click)="onClickMask($event)"
+  [style.zIndex]="zIndex"
+  [style.display]="hidden ? 'none' : ''">
+    <div #modalContainer class="overlay {{className}}" 
+    [ngClass]="modalAnimationClassMap" 
+    [ngStyle]="style"
+    [style.width]="width | toCssUnit"
+    [style.transform-origin]="transformOrigin">
+      <div class="overlay-content">
+        <div class="overlay-head-container">
+          <div class="overlay-title">{{ title }}</div>
+          <button class="overlay-close" *ngIf="closable" (click)="onClickCloseBtn($event)"><i class="anticon anticon-close"></i></button>
+        </div>
+        <div class="overlay-body-container">
+          <ng-container #bodyContainer></ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

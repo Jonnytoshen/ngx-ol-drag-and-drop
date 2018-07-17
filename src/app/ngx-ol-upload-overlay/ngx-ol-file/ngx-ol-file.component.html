@@ -1,0 +1,8 @@
+<div class="file-container" [title]="file.name">
+  <p class="file-view">
+    <i class="anticon anticon-file"></i>
+    <span class="file-suffix">{{suffix}}</span>
+    <i class="anticon anticon-close-circle" (click)="onRemove.emit(file)"></i>
+  </p>
+  <p class="file-name">{{file.name}}</p>
+</div>

@@ -1,0 +1,44 @@
+.file-container {
+  cursor: pointer;
+  .file-view {
+    position: relative;
+    margin-bottom: 10px;
+    padding: 16px 10px;
+    border: 1px dashed #d9d9d9;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #fafafa;
+    .anticon {
+      font-size: 42px;
+    }
+    .file-suffix {
+      display: block;
+      margin-top: 8px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .anticon-close-circle {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        font-size: 16px;
+        color: #f5222d;
+    }
+  }
+  .file-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  &:hover {
+      .file-view {
+          border-color: #40a9ff;
+          .file-remove {
+              display: block;
+          }
+      }
+  }
+}

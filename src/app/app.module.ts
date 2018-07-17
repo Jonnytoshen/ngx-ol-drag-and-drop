@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 
+import { NgxOlUploadOverlayModule } from './ngx-ol-upload-overlay';
 import { AppComponent } from './app.component';
 
 /** 配置 angular i18n **/
@@ -22,7 +23,8 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule,
     /** 导入 ng-zorro-antd 模块 **/
-    NgZorroAntdModule
+    NgZorroAntdModule,
+    NgxOlUploadOverlayModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]

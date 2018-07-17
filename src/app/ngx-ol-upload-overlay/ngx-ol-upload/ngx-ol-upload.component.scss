@@ -1,0 +1,28 @@
+.drag-upload {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border: 1px dashed #d9d9d9;
+  border-radius: 4px;
+  transition: border-color .3s;
+  text-align: center;
+  background-color: #fafafa;
+  cursor: pointer;
+  &.drag-enter,
+  &:hover {
+    border-color: #40a9ff;
+  }
+  .file-input {
+    display: none;
+  }
+  .drag-upload-content {
+    padding: 30px 16px;
+  }
+  .drag-drop-area {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}

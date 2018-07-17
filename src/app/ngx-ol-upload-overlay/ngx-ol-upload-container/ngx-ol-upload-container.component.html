@@ -1,0 +1,43 @@
+<div class="upload-container">
+  <div nz-row class="file-type">
+    <label nz-col nzSpan="3" class="file-type-lable">文件类型：</label>
+    <div nz-col nzSpan="6" class="file-type-control">
+      <nz-select [(ngModel)]="fileType" (ngModelChange)="onFileTypeChange($event)" nzPlaceHolder="选择上传的文件类型" style="width: 100%">
+        <nz-option nzValue="Shapefile" nzLabel="Shapefile"></nz-option>
+        <nz-option nzValue="GPX" nzLabel="GPX"></nz-option>
+        <nz-option nzValue="GeoJSON" nzLabel="GeoJSON"></nz-option>
+        <nz-option nzValue="IGC" nzLabel="IGC"></nz-option>
+        <nz-option nzValue="KML" nzLabel="KML"></nz-option>
+        <nz-option nzValue="TopoJSON" nzLabel="TopoJSON"></nz-option>
+      </nz-select>
+    </div>
+  </div>
+  <div ngx-ol-upload class="upload-drag-area" 
+  *ngIf="files.length === 0"
+  [accept]="accepts"
+  (fileChange)="onFileChange($event)">
+    <p class="upload-drag-icon">
+      <i class="anticon anticon-inbox"></i>
+    </p>
+    <p class="upload-text">单击或拖动文件到此区域进行上传</p>
+    <p class="upload-hint">支持多个文件上传。可上传的文件格式包括：GPX / GeoJSON / IGC / KML / TopoJSON / Shapefile。</p>
+  </div>
+  <ul class="file-list" *ngIf="files.length !== 0">
+    <li ngx-ol-file class="file-item" *ngFor="let file of files" [file]="file" (onRemove)="onRemoveFile($event)"></li>
+  </ul>
+  <div class="error-alert" *ngIf="shapfileError">
+    <nz-alert 
+    *ngFor="let item of shapfileError"
+    (nzOnClose)="onAlertClose()" 
+    nzType="error" 
+    nzDescription="您上传的文件中没有找到.shp文件，请至少上传一个.shp的文件。" 
+    nzCloseText="重新选择文件" 
+    nzShowIcon></nz-alert>
+  </div>
+</div>
+
+<div class="upload-footer">
+  <button nz-button (click)="onClickOkBtn($event)" nzType="primary" [nzLoading]="loading" [disabled]="submitDisabled">确 定</button>
+  <button nz-button (click)="onClickResetBtn($event)" nzType="default" [disabled]="loading">重 置</button>
+  <button nz-button (click)="onClickCancelBtn($event)" nzType="default" [disabled]="loading">取 消</button>
+</div>
